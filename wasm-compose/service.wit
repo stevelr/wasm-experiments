@@ -1,0 +1,34 @@
+interface handler {
+    record request {
+        headers: list<tuple<list<u8>, list<u8>>>,
+        body: list<u8>,
+    }
+
+    record response {
+        headers: list<tuple<list<u8>, list<u8>>>,
+        body: list<u8>
+    }
+
+    enum error {
+        bad-request,
+    }
+
+    execute: func(req: request) -> result<response, error>
+}
+
+interface string-util {
+    
+    concat: func(s1: string, s2: string) -> string
+
+}
+
+default world service {
+    import strings: self.string-util
+    export handler: self.handler
+}
+
+world middleware {
+    import downstream: self.handler
+    export strings: self.string-util
+    export handler: self.handler
+}
