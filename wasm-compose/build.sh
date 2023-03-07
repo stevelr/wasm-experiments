@@ -7,6 +7,5 @@ set -x
 (cd server && \
     wasm-tools compose -c config.yml \
         -o service.wasm \
-        ../middleware/target/wasm32-unknown-unknown/release/middleware.wasm
+        ../middleware/target/wasm32-wasi/release/middleware.wasm
 )
-

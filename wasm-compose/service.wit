@@ -17,9 +17,7 @@ interface handler {
 }
 
 interface string-util {
-    
     concat: func(s1: string, s2: string) -> string
-
 }
 
 default world service {
@@ -29,6 +27,6 @@ default world service {
 
 world middleware {
     import downstream: self.handler
-    export strings: self.string-util
+    export adapter: self.string-util
     export handler: self.handler
 }

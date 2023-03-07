@@ -1,4 +1,4 @@
-use bindings::strings;
+use bindings::adapter;
 use bindings::{
     downstream,
     handler::{Error, Handler, Request, Response},
@@ -9,7 +9,7 @@ use std::io::Write;
 
 struct Component;
 
-impl strings::Strings for Component {
+impl adapter::Adapter for Component {
     fn concat(s1: String, s2: String) -> String {
         format!("{}{}", s1, s2)
     }
