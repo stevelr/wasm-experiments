@@ -1,6 +1,13 @@
 # `wasi-messaging-demo`
 
-This repo. contains a demo. of [`wasi-messaging`](https://github.com/WebAssembly/wasi-messaging) in action.
+This repo is based on https://github.com/danbugs/wasi-messaging-demo
+
+
+- 'guest/' contains source for a component using wit messaging interface
+- 'adapter/' source for a component that adapts wit messaging to wasmcloud (in progress)
+- 'host/' example host implementation that loads and runs the adapter as a component
+
+
 
 ## Repository Structure
 
