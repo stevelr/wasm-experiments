@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "host",
-    "guest"
+    "guest",
+    "adapter",
 ]

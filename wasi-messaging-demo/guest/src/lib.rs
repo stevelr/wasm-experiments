@@ -1,10 +1,11 @@
 use crate::{
-    messaging_types::{open_broker, Channel, EventParam},
+    messaging_types::{open_broker, ChannelParam, EventParam},
     producer::publish,
 };
 
 wit_bindgen::generate!({
     path: "../wit",
+    world: "messaging",
 });
 
 struct MyMessaging;
@@ -35,7 +36,7 @@ impl handler::Handler for MyMessaging {
         };
 
         println!(">>> Publishing: {:#?}", new_event);
-        publish(b, Channel::Topic("rust"), new_event)?;
+        publish(b, ChannelParam::Topic("rust"), new_event)?;
 
         Ok(())
     }
